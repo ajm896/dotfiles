@@ -62,7 +62,7 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,12 +151,13 @@ if $COLORTERM == 'gnome-terminal'
         set t_Co=256
 endif
 
+set t_Co=256
 try
-        colorscheme desert
+        colorscheme monokai
 catch
 endtry
 
-set background=dark
+"set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -402,8 +403,39 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-dispatch'
+Plug 'SirVer/ultisnips'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'easymotion/vim-easymotion'
+Plug 'townk/vim-autoclose'
+Plug 'airblade/vim-gitgutter'
+Plug 'ervandew/supertab'
+Plug 'crusoexia/vim-monokai'
 
 call plug#end()
 
 inoremap jk <esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+autocmd! bufwritepost .vimrc source %
+set number
+
+let g:go_fmt_command = "goimports"
+
+"GO
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+
+
