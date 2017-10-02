@@ -26,6 +26,7 @@ set wildmenu
 set lazyredraw
 "Match brackets and such
 set showmatch
+set shiftwidth=4
 
 ""Searching
 set incsearch "search while typing
@@ -47,8 +48,6 @@ nnoremap <leader>u :GundoToggle<CR>
 ""CtrlP
 " Order top to bottom
 let g:ctrlp_match_window = 'bottom,order:ttb'
-"open in new buffer
-let g:ctrlp_switch_buffer = 0
 
 "Plugins
 call plug#begin('~/.vim/plugged')
@@ -64,6 +63,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
 Plug 'crusoexia/vim-monokai'
 Plug 'sjl/gundo.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 "Calls filetype indent and syntax enable
 call plug#end()
 
@@ -88,3 +89,6 @@ let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 
 autocmd BufEnter Makefile setlocal noexpandtab
+"JSX
+let g:jsx_ext_required = 0
+
